@@ -1,0 +1,83 @@
+<h2>Instructions</h2>
+<p>
+    Appuyez sur <em>Start</em> pour commencer la partie. Observez la séquence de
+    couleurs programmée par Simon, et ne vous trompez pas !
+</p>
+<p>
+    Utilisez le bouton Reset pour recommencer la partie à 0. Attention : cela
+    effacera votre record !
+</p>
+<div id="simon-wrapper">
+    <div id="frame" fxLayout="column" fxLayoutAlign="center" fxLayoutGap="2em">
+        <div
+            id="upper"
+            fxLayout="row"
+            fxLayoutAlign="center stretch"
+            fxLayoutGap="2em"
+        >
+            <div
+                #green
+                id="green"
+                [ngClass.lt-md]="['mobile']"
+                (click)="clickGreen()"
+            ></div>
+            <div
+                #red
+                id="red"
+                [ngClass.lt-md]="['mobile']"
+                (click)="clickRed()"
+            ></div>
+        </div>
+        <div
+            id="lower"
+            fxLayout="row"
+            fxLayoutAlign="center stretch"
+            fxLayoutGap="2em"
+        >
+            <div
+                #yellow
+                id="yellow"
+                [ngClass.lt-md]="['mobile']"
+                (click)="clickYellow()"
+            ></div>
+            <div
+                #blue
+                id="blue"
+                [ngClass.lt-md]="['mobile']"
+                (click)="clickBlue()"
+            ></div>
+        </div>
+    </div>
+    <div
+        id="center"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="5px"
+        class.lt-md="mobile"
+    >
+        <div
+            class="label"
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+            fxLayoutGap="5px"
+        >
+            <span>Round :</span>
+            <div class="digital-counter">{{ round }}</div>
+        </div>
+        <div
+            class="label"
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+            fxLayoutGap="5px"
+        >
+            <span>Best :</span>
+            <div class="digital-counter">{{ best }}</div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1em">
+            <button class="button" (click)="resetGame()">Reset</button>
+            <button class="button" (click)="startGame()" [disabled]="playing">
+                Start
+            </button>
+        </div>
+    </div>
+</div>
